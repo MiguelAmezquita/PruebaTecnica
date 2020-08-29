@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="kt-portlet kt-portlet--mobile">
+    <div class="kt-portlet__head kt-portlet__head--lg">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                @*<i class="kt-font-brand flaticon2-line-chart"></i>*@
+            </span>
+            <h3 class="kt-portlet__head-title">
+                Clientes
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <a href="javascript:;" class="btn btn-clean btn-icon-sm" id="entitysReload">
+                        <i class="la la-refresh"></i>
+                        Recargar
+                    </a>
+                    &nbsp;
+                    <a href="javascript:;" class="btn btn-brand btn-elevate btn-icon-sm" id="newEntity">
+                        <i class="la la-plus"></i> Nuevo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+
+        <!--begin: Search Form -->
+        <div class="kt-form kt-form--label-right kt-margin-t-20 kt-margin-b-10">
+            <div class="row align-items-center">
+                <div class="col-xl-8 order-2 order-xl-1">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                            <div class="kt-input-icon kt-input-icon--left">
+                                <input type="text" class="form-control" placeholder="Buscar..." id="generalSearch" autocomplete="off">
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                    <span><i class="la la-search"></i></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body kt-portlet__body--fit">
+        <div class="kt-datatable" id="json_data"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="kt_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form autocomplete="off" id="modalForm">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="IDCliente" name="IDCliente" readonly="readonly" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Codigo" class="form-control-label">Código:</label>
+                        <input type="text" class="form-control" id="Codigo" name="Codigo" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Nombres" class="form-control-label">Nombres:</label>
+                        <input type="text" class="form-control" id="Nombres" name="Nombres">
+                    </div>
+                    <div class="form-group">
+                        <label for="Apellidos" class="form-control-label">Apellidos:</label>
+                        <input type="text" class="form-control" id="Apellidos" name="Apellidos" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Dirección" class="form-control-label">Dirección:</label>
+                        <input type="text" class="form-control" id="Direccion" name="Direccion" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Teléfono" class="form-control-label">Teléfono:</label>
+                        <input type="text" class="form-control" id="Telefono" name="Telefono" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" id="modalCerrar">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="modalGuardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Pages/Clientes.js"></script>

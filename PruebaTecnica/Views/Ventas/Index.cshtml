@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="kt-portlet kt-portlet--mobile">
+    <div class="kt-portlet__head kt-portlet__head--lg">
+        <div class="kt-portlet__head-label">
+            <span class="kt-portlet__head-icon">
+                <i class="kt-font-brand flaticon-doc"></i>
+            </span>
+            <h3 class="kt-portlet__head-title">
+                Factura #
+                <span id="NumeroFactura"></span>
+            </h3>
+        </div>
+        <div class="kt-portlet__head-toolbar">
+            <div class="kt-portlet__head-wrapper">
+                <div class="kt-portlet__head-actions">
+                    <a href="@Url.Action("AplicarFactura","Ventas")" class="btn btn-success btn-icon-sm" id="entitysAply">
+                        <i class="la la-check-circle"></i>
+                        Aplicar Factura
+                    </a>
+                    <a href="javascript:;" class="btn btn-clean btn-icon-sm" id="entitysReload">
+                        <i class="la la-folder-open"></i>
+                        Buscar Factura
+                    </a>
+                    &nbsp;
+                    <a href="@Url.Action("NuevaVenta","Ventas")" class="btn btn-brand btn-elevate btn-icon-sm" id="newEntity">
+                        <i class="la la-plus"></i> Nueva Venta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body">
+        <div class="kt-form kt-form--label-right kt-margin-t-10 kt-margin-b-10">
+            <div class="row">
+                <div class="col-6 order-2 orden-xl-2">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 kt-margin-b-20-tablet-and-mobile">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Codigo del Cliente" id="CodigoCliente">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="button" id="BuscarCliente">Cliente</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 order-1 order-xl-1">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 kt-margin-b-20-tablet-and-mobile">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Codigo del Producto..." id="CodigoProducto">
+                                <div class="input-group-append">
+                                    <button class="btn btn-secondary" type="button" id="AgregarProducto">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="kt-form kt-form--label-right kt-margin-t-10 kt-margin-b-10">
+            <div class="row">
+                <div class="col-6 order-1 order-xl-1">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 kt-margin-b-20-tablet-and-mobile">
+                            <div class="kt-input-icon kt-input-icon--left">
+                                <input type="text" class="form-control" placeholder="Buscar..." id="generalSearch" autocomplete="off">
+                                <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                    <span><i class="la la-search"></i></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 order-1 order-xl-1">
+                    <div class="row align-items-center">
+                        <div class="col-md-12 kt-margin-b-20-tablet-and-mobile">
+                            <div class="kt-invoice__total">
+                                <span class="kt-invoice__title" style="font-size: 1.2rem;text-transform: capitalize;font-weight: 600; color: #74788d;">Nombre: </span>
+                                <span class="kt-invoice__price" style="font-weight: 700;font-size: 24px; }" id="NombreCliente"></span>
+                            </div>
+                            <div class="kt-invoice__total">
+                                <span class="kt-invoice__title" style="font-size: 1.2rem;text-transform: capitalize;font-weight: 600; color: #74788d;">Estado Factura:</span>
+                                <span class="kt-invoice__price" style="color: #FE21BE; font-weight: 700;font-size: 24px; }" id="EstadoFactura"></span>
+                            </div>
+                            <div class="kt-invoice__total">
+                                <span class="kt-invoice__title" style="font-size: 2rem;text-transform: capitalize;font-weight: 600; color: #74788d;">TOTAL: </span>
+                                <span class="kt-invoice__price" style="font-weight: 700;font-size: 24px; }" id="TotalGeneral"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kt-portlet__body kt-portlet__body--fit">
+        <div class="kt-datatable" id="json_data"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="kt_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form autocomplete="off" id="modalForm">
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="IDDetalleFactura" name="IDDetalleFactura" readonly="readonly" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Codigo" class="form-control-label">Codigo:</label>
+                        <input type="text" class="form-control" id="Codigo" name="Codigo" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Cantidad" class="form-control-label">Cantidad:</label>
+                        <input type="text" class="form-control" id="Cantidad" name="Cantidad" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" id="modalCerrar">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="modalGuardar">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Pages/Ventas.js"></script>

@@ -1,0 +1,85 @@
+﻿.SGRL-Portlet-head .kt-portlet__head-title {
+    font-size: 1.6rem !important;
+}
+
+.SGRL-Portlet-head .kt-portlet__head-icon {
+    font-size: 1.9rem !important;
+}
+
+.SGRL-kt-widget4 .kt-widget4__item .kt-widget4__icon {
+}
+
+.SGRL-kt-widget4 .kt-widget4__item .kt-widget4__title {
+    font-size: 1.2rem !important;
+}
+
+
+.SGRL-kt-widget4 .kt-widget4__item .kt-widget4__number {
+    font-size: 1.4rem !important;
+}
+
+.SGRL-kt-widget4 .kt-widget4__item .kt-widget4__number-2 {
+    font-size: 1.1rem !important;
+}
+
+.SGRL-kt-header__topbar-user {
+    font-size: 1.3rem !important;
+    font-weight: 400 !important;
+}
+
+.SRG-kt-header__topbar-username {
+    flex-grow: 1 !important;
+    font-size: 1.3rem !important;
+    font-weight: 400 !important;
+    padding-right: 1rem !important;
+    color: #595d6e !important;
+}
+
+.kt-header {
+    height: 55px !important;
+}
+
+.kt-header__topbar {
+    width: 100% !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.kt-header--fixed .kt-wrapper {
+    padding-top: 55px;
+}
+
+.SRG-kt-header__topbar-wrapper-cooperativa {
+    background: rgba(77,89,149,0.06);
+    padding: 0px 10px 0px 10px !important;
+}
+
+.dxgvFooter_iOS .dxgv {
+    font-weight: bold !important;
+}
+
+.SGRL-kt-menu__link-text {
+    text-align: center !important;
+}
+
+
+.img-Profile {
+    align-self: center !important;
+    max-height: 34px !important;
+    border-radius: 4px !important;
+}
+
+.SGRL-kt-aside__brand {
+    background-color: #fff !important;
+}
+
+
+.kt-avatar .SGRL-kt-avatar__holder {
+    width: 150px !important;
+    height: 150px !important;
+    background-size: 100% 100% !important;
+}
+
+.SGRL-kt-avatar__cancel {
+    display: -webkit-box !important;
+}
